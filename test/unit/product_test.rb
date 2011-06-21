@@ -34,7 +34,7 @@ class ProductTest < ActiveSupport::TestCase
 	def new_product(image_url)
 		Product.new(:title => "My title",
 			:description => "my description",
-			:price => 999.99
+			:price => 999.99,
 			:image_url => image_url)
 	end
 	
