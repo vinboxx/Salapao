@@ -28,6 +28,14 @@ class User < ActiveRecord::Base
 			end
 		end
 	end
+	
+	after_destroy :ensure_an_admin_remains
+
+    def ensure_an_admin_remains
+      if User.count.zero?
+        raise "Can't delete last user"
+      end
+    end  
 
 	private
 		def password_must_be_present
